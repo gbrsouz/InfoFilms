@@ -3,10 +3,27 @@ body {
   text-align: center;
 }
 
+div#divSup {
+  display: flex;
+}
+
 div#resultado {
   border: 1px solid black;
   text-align: left;
   margin-top: 20px;
+}
+
+div#imagemFilme {
+  border: 1px solid black;
+  text-align: left;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  padding: 5px;
 }
 
 h2#infoTitulo {

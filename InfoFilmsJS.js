@@ -10,6 +10,7 @@ function formatarTitulo(texto) {
 function buscarFilme() {
   const nome = document.getElementById("nomeFilme").value;
   const resultado = document.getElementById("resultado");
+  const imagemFilme = document.getElementById("imagemFilme");
 
   if (!nome) {
     resultado.innerHTML = "<p>Digite um nome.</p>";
@@ -38,15 +39,19 @@ function buscarFilme() {
         ).join(" | ");
       }
 
-      dados.Poster = "<img src=" + '"' + dados.Poster + '">';
-
       let html = '<h2 id="infoTitulo">Informações</h2><ul>';
       for (const chave in dados) {
+        if (chave === "Poster") continue;
         html += `<li><strong>${chave}:</strong> ${dados[chave]}</li>`;
       }
       html += "</ul>";
 
+      dados.Poster =
+        "<img src=" + '"' + dados.Poster + '" alt="Poster do Filme">';
+
       resultado.innerHTML = html;
+
+      imagemFilme.innerHTML = dados.Poster;
     })
     .catch((err) => {
       resultado.innerHTML = `<p style="color:red;">Erro: ${err.message}</p>`;

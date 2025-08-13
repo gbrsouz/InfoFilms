@@ -42,6 +42,7 @@ function buscarFilme() {
       let html = '<h2 id="infoTitulo">Informações</h2><ul>';
       for (const chave in dados) {
         if (chave === "Poster") continue;
+        if (chave === "Response") continue;
         html += `<li><strong>${chave}:</strong> ${dados[chave]}</li>`;
       }
       html += "</ul>";

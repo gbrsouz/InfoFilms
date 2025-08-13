@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(191, 230, 243);
+  text-align: center;
+}
+
+div#resultado {
+  border: 1px solid black;
+  text-align: left;
+}
+
+h2#infoTitulo {
+  text-align: center;
+}

@@ -1,3 +1,15 @@
+const input = document.getElementById("nomeFilme");
+const botao = document.getElementById("botaoPesquisar");
+
+console.log(input);
+
+input.addEventListener("keydown", (event) => { 
+  if (event.key === "Enter") {
+    event.preventDefault();
+    botao.click();
+  }
+})
+
 function formatarTitulo(texto) {
   return texto
     .trim()
@@ -39,6 +51,8 @@ function buscarFilme() {
         ).join(" | ");
       }
 
+      console.log(dados);
+
       let html = '<h2 id="infoTitulo">Informações</h2><ul>';
       for (const chave in dados) {
         if (chave === "Poster") continue;
@@ -47,12 +61,20 @@ function buscarFilme() {
       }
       html += "</ul>";
 
-      dados.Poster =
+      if(dados.Poster == "N/A"){
+        resultado.innerHTML = html;
+
+        imagemFilme.innerHTML = "Sem Imagem";
+      }
+      else{
+        dados.Poster =
         "<img src=" + '"' + dados.Poster + '" alt="Poster do Filme">';
 
-      resultado.innerHTML = html;
+        resultado.innerHTML = html;
 
-      imagemFilme.innerHTML = dados.Poster;
+        imagemFilme.innerHTML = dados.Poster;
+      }
+      
     })
     .catch((err) => {
       resultado.innerHTML = `<p style="color:red;">Erro: ${err.message}</p>`;

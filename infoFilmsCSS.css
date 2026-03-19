@@ -16,7 +16,7 @@ div#resultado {
 div#imagemFilme {
   border: 1px solid black;
   text-align: left;
-  margin-top: 20px;
+  margin: 20px 20px 0px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
